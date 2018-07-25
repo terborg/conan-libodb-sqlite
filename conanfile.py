@@ -44,7 +44,9 @@ class LibODBSqliteConan( ConanFile ):
     def package(self):
         
         self.copy( "*.hxx", dst="include/odb", src= os.path.join( self.source_path(), "odb" )  )
+
         self.copy( "*.a", dst="lib", keep_path=False )
+        self.copy( "*.h", dst="include", keep_path=True )
 
     def package_info(self):
         self.cpp_info.libs = ["odb-sqlite"]
