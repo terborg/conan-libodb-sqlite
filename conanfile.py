@@ -27,6 +27,7 @@ class LibODBSqliteConan( ConanFile ):
             del self.settings.compiler.libcxx
         
         env_build = AutoToolsBuildEnvironment(self)
+        env_build.fpic = self.options.fPIC
 
         configure_args = []
         if not self.options.shared:
